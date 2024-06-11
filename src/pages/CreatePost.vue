@@ -53,7 +53,7 @@
                 <div class="form-group mb-3">
                     <label for="tags">Tags</label>
                     <select class="form-control" id="tags" v-model="tags" multiple>
-                        <option v-for="tag in alltags" :value="tag.id">{{tag.name}}</option>
+                        <option v-for="tag in allTags" :value="tag.id">{{tag.title}}</option>
                     </select>
                     <div v-if="errors.tags" class="alert-danger alert"> {{ errors.tags }} </div>
                 </div>
@@ -72,7 +72,7 @@ export default {
     data () {
         return {
             allCategories: [],
-            alltags: [],
+            allTags: [],
             store,
             title: '',
             // slug: '',
@@ -89,7 +89,16 @@ export default {
             try {
                 const response = await axios.get(`${store.backendBaseUrl}/categories`);
                 this.allCategories = response.data;
-                console.log(this.allCategories);
+
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        async getTags() {
+            try {
+                const response = await axios.get(`${store.backendBaseUrl}/tags`);
+                this.allTags = response.data;
+                console.log(this.allTags);
 
             } catch (error) {
                 console.error(error);
@@ -125,7 +134,8 @@ export default {
         },
     },
     mounted() {
-        this.getCategories()
+        this.getCategories(),
+        this.getTags()
     }
 }
 </script>

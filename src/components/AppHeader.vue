@@ -16,7 +16,7 @@
                     <router-link to="/login">Login</router-link>
                 </li>
                 <li v-if="store.userLoggedIn">
-                    <router-link to="/create" class="text-primary fw-bold">Post Something</router-link>
+                    <router-link to="/create" class="text-primary fw-bold">Post Something +</router-link>
                 </li>
             </ul>
         </nav>        
