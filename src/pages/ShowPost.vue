@@ -14,21 +14,29 @@
             </div>
 
             <div class="d-flex flex-column justify-content-between col-6 p-5">
-                <p class="mt-2">
-                    {{ post?.content }}
-                </p>
+                <div class="mt-2">
+                    <h5>Contenuto: </h5>
+                    <p >
+                        {{ post?.content }}
+                    </p>
+                </div>
 
-                <h6 class="text-capitalize">
-                    {{ post?.category?.title }}
-                    
-                </h6>
-                <ul v-if="post?.tags?.length > 0" class="d-flex gap-3 list-unstyled">
-                    <li v-for="tag in post?.tags">
-                        <span class="tag p-1">
-                            {{ tag.title }}
-                        </span>
-                    </li>
-                </ul>
+                <div>
+                    <h5>Categoria:</h5>
+                    <h6 class="text-capitalize">
+                        {{ post?.category?.title }}
+                    </h6>
+                </div>
+                <div>
+                    <h5>Tags:</h5>
+                    <ul v-if="post?.tags?.length > 0" class="d-flex gap-3 list-unstyled">
+                        <li v-for="tag in post?.tags">
+                            <span class="tag p-1">
+                                {{ tag.title }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         
